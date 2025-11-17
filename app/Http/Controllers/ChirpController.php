@@ -47,13 +47,6 @@ class ChirpController extends Controller
          // Use the authenticated user
         auth()->user()->chirps()->create($validated);
 
-        // Create the chirp (no user for now - we'll add auth later)
-        Chirp::create([
-            'message' => $validated['message'],
-            'user_id' => null, // We'll add authentication in lesson 11
-        ]);
-       
-
         // Redirect back to the feed
         return redirect('/')->with('success', 'Your chirp has been posted!');
     }
